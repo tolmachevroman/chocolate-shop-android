@@ -1,0 +1,40 @@
+schema {
+  query: QueryRoot
+  mutation: MutationRoot
+}
+
+# Directs the executor to query only when the field exists.
+directive @ifdef on FIELD
+
+enum ChocolateType {
+  BITTER
+  WHITE
+  MILK
+}
+
+type MutationRoot {
+  createProduct(
+    name: String!
+    description: String!
+    price: Int!
+    chocolateType: ChocolateType!
+    fillings: [String!]!
+    images: [String!]!
+  ): ID!
+  updateProductPrice(id: ID!, newPrice: Int!): Boolean!
+  deleteProduct(id: ID!): Boolean!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  description: String!
+  price: Int!
+  chocolateType: ChocolateType!
+  fillings: [String!]!
+  images: [String!]!
+}
+
+type QueryRoot {
+  products: [Product!]!
+}

@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.chocolate.shop.GetProductsQuery
 import com.chocolate.shop.R
 import com.chocolate.shop.databinding.ChocolateAdapterItemBinding
 import com.squareup.picasso.Picasso
 import java.util.*
 
-class ChocolateAdapter(private val data: List<String>) :
+class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
     RecyclerView.Adapter<ChocolateAdapter.ViewHolder>() {
 
     private val rand = Random()
@@ -27,10 +28,10 @@ class ChocolateAdapter(private val data: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = data[position]
+        holder.textView.text = data[position].name
 //        holder.image.layoutParams.height = getRandomIntInRange(350, 250)
         Picasso.get()
-            .load("https://www.eatthis.com/wp-content/uploads//media/images/ext/734795089/various-chocolates.jpg")
+            .load(data[position].images[0])
             .into(holder.image);
         holder.item.setOnClickListener {
             println("Click!")
