@@ -1,5 +1,7 @@
 package com.chocolate.shop.views
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -11,7 +13,7 @@ import com.chocolate.shop.databinding.ActivityChocolateListBinding
 import com.chocolate.shop.viewmodels.ChocolateListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.chocolate.shop.views.adapters.ChocolateAdapter
-import com.chocolate.shop.views.adapters.GridItemDecoration
+import com.chocolate.shop.views.adapters.StaggeredGridBorderDecoration
 
 @AndroidEntryPoint
 class ChocolateListActivity : AppCompatActivity() {
@@ -28,12 +30,15 @@ class ChocolateListActivity : AppCompatActivity() {
 
         //set layout manager
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        binding.recyclerView.addItemDecoration(GridItemDecoration(12, 2))
+        binding.recyclerView.addItemDecoration(StaggeredGridBorderDecoration(8,
+            ColorDrawable(Color.parseColor("#ffffff"))))
 
         viewModel.getChocolates().observe(this, Observer { data ->
             println("Got: $data");
-            adapter = ChocolateAdapter(data)
-            binding.recyclerView.adapter = adapter
+            if (data.isNotEmpty()) {
+                adapter = ChocolateAdapter(data)
+                binding.recyclerView.adapter = adapter
+            }
         })
 
     }

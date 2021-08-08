@@ -1,24 +1,30 @@
 package com.chocolate.shop.views.adapters
 
+import android.content.res.Resources
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.chocolate.shop.GetProductsQuery
-import com.chocolate.shop.R
 import com.chocolate.shop.databinding.ChocolateAdapterItemBinding
 import com.squareup.picasso.Picasso
-import java.util.*
 
 class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
     RecyclerView.Adapter<ChocolateAdapter.ViewHolder>() {
 
-    private val rand = Random()
+    private var heights: List<Int>
+    init {
+        val h = mutableListOf<Int>()
+        val screenHeight = Resources.getSystem().displayMetrics.run { heightPixels }
+        for (i in 0..data.size) {
+            val percentage = (30..50).random() / 100.0
+            h.add((screenHeight * percentage).toInt())
+        }
+        heights = h
+    }
 
     class ViewHolder(binding: ChocolateAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val item = binding.item
-        val textView = binding.label
+        val textView = binding.name
         val image = binding.image
     }
 
@@ -29,7 +35,7 @@ class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = data[position].name
-//        holder.image.layoutParams.height = getRandomIntInRange(350, 250)
+        holder.image.layoutParams.height = heights[position]
         Picasso.get()
             .load(data[position].images[0])
             .into(holder.image);
@@ -42,8 +48,5 @@ class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
         return data.size
     }
 
-    private fun getRandomIntInRange(max: Int, min: Int): Int {
-        return rand.nextInt(max - min + min) + min
-    }
 }
 
