@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.coroutines.await
 import com.chocolate.shop.GetProductsQuery
+import com.chocolate.shop.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,19 +26,19 @@ class ChocolateListViewModel @Inject constructor() : ViewModel() {
             val data = apolloClient.query(GetProductsQuery()).await().data
             data?.products?.apply {
                 println("Received $this")
-                chocolates.value = this
+                chocolates.value = Resource.success(this) //TODO handle error
             }
 
         }
     }
 
-    private val chocolates: MutableLiveData<List<GetProductsQuery.Product>> by lazy {
-        MutableLiveData<List<GetProductsQuery.Product>>().also {
-            it.value = listOf()
+    private val chocolates: MutableLiveData<Resource<List<GetProductsQuery.Product>>> by lazy {
+        MutableLiveData<Resource<List<GetProductsQuery.Product>>>().also {
+            it.value = Resource.loading(listOf())
         }
     }
 
-    fun getChocolates(): LiveData<List<GetProductsQuery.Product>> {
+    fun getChocolates(): LiveData<Resource<List<GetProductsQuery.Product>>> {
         return chocolates;
     }
 
