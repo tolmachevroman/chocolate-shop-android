@@ -10,7 +10,7 @@ import javax.inject.Inject
 class ChocolateListViewModel @Inject constructor() : ViewModel() {
     private val chocolates: MutableLiveData<List<String>> by lazy {
         MutableLiveData<List<String>>().also {
-            it.value = listOf("One", "Two")
+            it.value = listOf("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten")
         }
     }
 

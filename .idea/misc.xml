@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ripple.xml" value="0.2171875" />
+        <entry key="app/src/main/res/drawable/selectable_item_background.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_adapter.xml" value="0.13541666666666666" />
       </map>
