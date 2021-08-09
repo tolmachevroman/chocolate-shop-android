@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 
 class ChocolateAdapter(
     private val data: List<GetProductsQuery.Product>,
-    private val onClickListener: ((String) -> Unit)
+    private val onClickListener: ((String, String) -> Unit)
 ) :
     RecyclerView.Adapter<ChocolateAdapter.ViewHolder>() {
 
@@ -56,7 +56,7 @@ class ChocolateAdapter(
                 }
             });
         holder.item.setOnClickListener {
-            onClickListener(data[position].id.toString())
+            onClickListener(data[position].id.toString(), data[position].name)
         }
     }
 

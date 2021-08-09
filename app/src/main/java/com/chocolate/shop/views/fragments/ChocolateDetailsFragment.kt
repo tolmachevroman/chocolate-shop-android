@@ -38,7 +38,9 @@ class ChocolateDetailsFragment : Fragment() {
 
         arguments?.apply {
             val productId: String = ChocolateDetailsFragmentArgs.fromBundle(this).productId
+            val productName: String = ChocolateDetailsFragmentArgs.fromBundle(this).productName
 
+            binding.toolbar.title = productName
             viewModel.chocolate(productId).observe(
                 viewLifecycleOwner, ResourceObserver(
                     javaClass.simpleName,
@@ -74,7 +76,6 @@ class ChocolateDetailsFragment : Fragment() {
 
     private fun onSuccess(data: GetProductQuery.Product?) {
         data?.apply {
-            binding.toolbar.title = name
             Picasso.get()
                 .load(images[0])
                 .into(binding.image);

@@ -73,8 +73,8 @@ class ChocolateListFragment : Fragment() {
 
     private fun onSuccess(data: List<GetProductsQuery.Product>?) {
         if (!data.isNullOrEmpty()) {
-            adapter = ChocolateAdapter(data) { productId ->
-                val directions = ChocolateListFragmentDirections.navigateToChocolateDetails(productId)
+            adapter = ChocolateAdapter(data) { productId, productName ->
+                val directions = ChocolateListFragmentDirections.navigateToChocolateDetails(productId, productName)
                 findNavController().navigate(directions)
             }
             binding.recyclerView.adapter = adapter

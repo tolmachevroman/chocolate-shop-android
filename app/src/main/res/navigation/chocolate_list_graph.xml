@@ -21,5 +21,8 @@
         <argument
             android:name="product_id"
             app:argType="string" />
+        <argument
+            android:name="product_name"
+            app:argType="string" />
     </fragment>
 </navigation>
