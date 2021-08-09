@@ -2,6 +2,7 @@ package com.chocolate.shop.data
 
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.ApolloQueryCall
+import com.chocolate.shop.GetProductQuery
 import com.chocolate.shop.GetProductsQuery
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -23,5 +24,9 @@ class ChocolateRepository @Inject constructor() {
 
     fun products(): ApolloQueryCall<GetProductsQuery.Data> {
         return apolloClient.query(GetProductsQuery())
+    }
+
+    fun product(id: String): ApolloQueryCall<GetProductQuery.Data> {
+        return apolloClient.query(GetProductQuery(id))
     }
 }

@@ -37,4 +37,5 @@ type Product {
 
 type QueryRoot {
   products: [Product!]!
+  product(id: ID!): Product!
 }
