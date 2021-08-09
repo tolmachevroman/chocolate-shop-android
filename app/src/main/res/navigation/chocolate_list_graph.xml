@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/chocolate_list"
         android:name="com.chocolate.shop.views.fragments.ChocolateListFragment"
-        android:label="ChocolateListFragment"
         tools:layout="@layout/chocolate_list_fragment">
         <action
             android:id="@+id/navigate_to_chocolate_details"
@@ -18,7 +17,6 @@
     <fragment
         android:id="@+id/chocolate_details"
         android:name="com.chocolate.shop.views.fragments.ChocolateDetailsFragment"
-        android:label="ChocolateDetailsFragment"
         tools:layout="@layout/chocolate_details_fragment">
         <argument
             android:name="product_id"

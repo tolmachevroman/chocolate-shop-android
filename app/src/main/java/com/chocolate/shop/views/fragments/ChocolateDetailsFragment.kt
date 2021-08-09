@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.chocolate.shop.GetProductQuery
 import com.chocolate.shop.databinding.ChocolateDetailsFragmentBinding
 import com.chocolate.shop.databinding.ChocolateListFragmentBinding
@@ -31,6 +33,9 @@ class ChocolateDetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val navController = findNavController()
+        binding.toolbar.setupWithNavController(navController)
+
         arguments?.apply {
             val productId: String = ChocolateDetailsFragmentArgs.fromBundle(this).productId
 
@@ -69,6 +74,7 @@ class ChocolateDetailsFragment : Fragment() {
 
     private fun onSuccess(data: GetProductQuery.Product?) {
         data?.apply {
+            binding.toolbar.title = name
             Picasso.get()
                 .load(images[0])
                 .into(binding.image);

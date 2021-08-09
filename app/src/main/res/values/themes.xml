@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ChocolateShop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ChocolateShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_500</item>
         <item name="colorPrimaryVariant">@color/green_700</item>
@@ -12,5 +12,25 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+    </style>
+
+    <style name="MyToolbar" parent="@style/Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/MyToolbartitleTextAppearance</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="background">?colorPrimary</item>
+        <item name="android:elevation">16dp</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="MyToolbartitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="fontFamily">@font/cambay</item>
+        <item name="android:fontFamily">@font/cambay</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="titleTextColor">@color/white</item>
     </style>
 </resources>
