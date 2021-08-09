@@ -1,5 +1,6 @@
-package com.chocolate.shop.views
+package com.chocolate.shop.views.activities
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -60,7 +61,11 @@ class ChocolateListActivity : AppCompatActivity() {
 
     private fun onSuccess(data: List<GetProductsQuery.Product>?) {
         if (!data.isNullOrEmpty()) {
-            adapter = ChocolateAdapter(data)
+            adapter = ChocolateAdapter(data) { productId ->
+                val intent = Intent(this, ChocolateDetailsActivity::class.java)
+//                intent.putExtra(ProductActivity.KEY_PRODUCT_ID, product.id)
+                startActivity(intent)
+            }
             binding.recyclerView.adapter = adapter
         }
     }

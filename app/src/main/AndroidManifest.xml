@@ -14,7 +14,7 @@
         android:theme="@style/Theme.ChocolateShop"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".views.ChocolateListActivity"
+            android:name=".views.activities.ChocolateListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.activities.ChocolateDetailsActivity"/>
     </application>
 
 </manifest>

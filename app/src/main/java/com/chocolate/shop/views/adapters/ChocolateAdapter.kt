@@ -8,7 +8,7 @@ import com.chocolate.shop.GetProductsQuery
 import com.chocolate.shop.databinding.ChocolateAdapterItemBinding
 import com.squareup.picasso.Picasso
 
-class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
+class ChocolateAdapter(private val data: List<GetProductsQuery.Product>, private val onClickListener: ((Int) -> Unit) ) :
     RecyclerView.Adapter<ChocolateAdapter.ViewHolder>() {
 
     private var heights: List<Int>
@@ -40,7 +40,7 @@ class ChocolateAdapter(private val data: List<GetProductsQuery.Product>) :
             .load(data[position].images[0])
             .into(holder.image);
         holder.item.setOnClickListener {
-            println("Click!")
+            onClickListener(position)
         }
     }
 
