@@ -39,7 +39,7 @@ class ChocolateListActivity : AppCompatActivity() {
             )
         )
 
-        viewModel.getChocolates().observe(
+        viewModel.chocolates().observe(
             this, ResourceObserver(
                 javaClass.simpleName,
                 ::hideLoading,
@@ -58,8 +58,8 @@ class ChocolateListActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.GONE
     }
 
-    private fun onSuccess(data: List<GetProductsQuery.Product>) {
-        if (data.isNotEmpty()) {
+    private fun onSuccess(data: List<GetProductsQuery.Product>?) {
+        if (!data.isNullOrEmpty()) {
             adapter = ChocolateAdapter(data)
             binding.recyclerView.adapter = adapter
         }

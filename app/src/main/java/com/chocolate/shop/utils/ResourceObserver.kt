@@ -22,7 +22,7 @@ class ResourceObserver<T>(private val tag: String,
                 hideLoading()
                 if (resource.error != null) {
                     Log.d(tag, "observer -> ERROR, ${resource.error}")
-                    onError(resource.error.message)
+                    onError(resource.error)
                 }
             }
             Resource.Status.LOADING -> {
