@@ -12,5 +12,4 @@ class ChocolateListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chocolate_list_host)
     }
-
 }

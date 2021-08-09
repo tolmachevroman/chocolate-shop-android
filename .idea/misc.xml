@@ -11,7 +11,8 @@
         <entry key="app/src/main/res/layout/activity_chocolate_list.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_adapter.xml" value="0.13541666666666666" />
-        <entry key="app/src/main/res/layout/chocolate_adapter_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/chocolate_adapter_item.xml" value="0.22869028419813808" />
+        <entry key="app/src/main/res/layout/chocolate_details_fragment.xml" value="0.13043478260869565" />
         <entry key="app/src/main/res/layout/chocolate_list_fragment.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_list_host.xml" value="0.13541666666666666" />
       </map>

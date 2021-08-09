@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:foreground="?android:attr/selectableItemBackground"
+    tools:layout_height="400dp">
 
     <ImageView
         android:id="@+id/image"
@@ -15,7 +17,9 @@
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:maxHeight="350dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
 
     <View
         android:id="@+id/gradient"
@@ -32,12 +36,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fontFamily="@font/cambay"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/image"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Queen Maud" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
