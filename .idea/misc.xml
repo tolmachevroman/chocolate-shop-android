@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_adapter.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_adapter_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/chocolate_list_fragment.xml" value="0.13541666666666666" />
+        <entry key="app/src/main/res/layout/chocolate_list_host.xml" value="0.13541666666666666" />
       </map>
     </option>
   </component>
