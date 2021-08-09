@@ -8,16 +8,21 @@ import com.chocolate.shop.GetProductsQuery
 import com.chocolate.shop.databinding.ChocolateAdapterItemBinding
 import com.squareup.picasso.Picasso
 
-class ChocolateAdapter(private val data: List<GetProductsQuery.Product>, private val onClickListener: ((String) -> Unit) ) :
+class ChocolateAdapter(
+    private val data: List<GetProductsQuery.Product>,
+    private val onClickListener: ((String) -> Unit)
+) :
     RecyclerView.Adapter<ChocolateAdapter.ViewHolder>() {
 
     private var heights: List<Int>
+
     init {
+        val percentages = listOf(0.4f, 0.5f, 0.45f)
+
         val h = mutableListOf<Int>()
         val screenHeight = Resources.getSystem().displayMetrics.run { heightPixels }
         for (i in 0..data.size) {
-            val percentage = (30..50).random() / 100.0
-            h.add((screenHeight * percentage).toInt())
+            h.add((screenHeight * percentages[i % percentages.size]).toInt())
         }
         heights = h
     }
@@ -29,7 +34,8 @@ class ChocolateAdapter(private val data: List<GetProductsQuery.Product>, private
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ChocolateAdapterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ChocolateAdapterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

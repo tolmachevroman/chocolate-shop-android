@@ -45,16 +45,16 @@ class ChocolateDetailsFragment : Fragment() {
             )
 
             //TODO move to another fragment
-            val newPrice = 555
-            viewModel.updateChocolatePrice(productId, newPrice).observe(
-                viewLifecycleOwner, ResourceObserver(
-                    javaClass.simpleName,
-                    ::hideLoading,
-                    ::showLoading,
-                    onSuccess = { binding.price.text = formatPrice(newPrice) },
-                    ::onError
-                )
-            )
+//            val newPrice = 555
+//            viewModel.updateChocolatePrice(productId, newPrice).observe(
+//                viewLifecycleOwner, ResourceObserver(
+//                    javaClass.simpleName,
+//                    ::hideLoading,
+//                    ::showLoading,
+//                    onSuccess = { binding.price.text = formatPrice(newPrice) },
+//                    ::onError
+//                )
+//            )
 
         }
     }
