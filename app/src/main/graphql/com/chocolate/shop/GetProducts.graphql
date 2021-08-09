@@ -1,5 +1,5 @@
 query GetProducts {
     products{
-        id, name, description, price, chocolateType, fillings, images
+        id, name, images
     }
 }
