@@ -31,15 +31,19 @@ class ChocolateDetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.chocolate("1").observe(
-            viewLifecycleOwner, ResourceObserver(
-                javaClass.simpleName,
-                ::hideLoading,
-                ::showLoading,
-                ::onSuccess,
-                ::onError
+        arguments?.apply {
+            val productId: String = ChocolateDetailsFragmentArgs.fromBundle(this).productId
+
+            viewModel.chocolate(productId).observe(
+                viewLifecycleOwner, ResourceObserver(
+                    javaClass.simpleName,
+                    ::hideLoading,
+                    ::showLoading,
+                    ::onSuccess,
+                    ::onError
+                )
             )
-        )
+        }
     }
 
     private fun hideLoading() {

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.chocolate.shop.GetProductsQuery
@@ -68,6 +69,8 @@ class ChocolateListFragment : Fragment() {
     private fun onSuccess(data: List<GetProductsQuery.Product>?) {
         if (!data.isNullOrEmpty()) {
             adapter = ChocolateAdapter(data) { productId ->
+                val directions = ChocolateListFragmentDirections.navigateToChocolateDetails(productId)
+                findNavController().navigate(directions)
             }
             binding.recyclerView.adapter = adapter
         }
