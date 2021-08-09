@@ -2,10 +2,12 @@ package com.chocolate.shop.views.adapters
 
 import android.content.res.Resources
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.chocolate.shop.GetProductsQuery
 import com.chocolate.shop.databinding.ChocolateAdapterItemBinding
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class ChocolateAdapter(
@@ -31,6 +33,7 @@ class ChocolateAdapter(
         val item = binding.item
         val textView = binding.name
         val image = binding.image
+        val gradient = binding.gradient
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -44,7 +47,14 @@ class ChocolateAdapter(
         holder.image.layoutParams.height = heights[position]
         Picasso.get()
             .load(data[position].images[0])
-            .into(holder.image);
+            .into(holder.image, object : com.squareup.picasso.Callback {
+                override fun onSuccess() {
+                    holder.gradient.visibility = View.VISIBLE
+                }
+
+                override fun onError(e: java.lang.Exception?) {
+                }
+            });
         holder.item.setOnClickListener {
             onClickListener(data[position].id.toString())
         }
