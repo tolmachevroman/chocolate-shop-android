@@ -51,12 +51,12 @@ class ChocolateListActivity : AppCompatActivity() {
         )
     }
 
-    private fun showLoading() {
-        binding.progressBar.visibility = View.VISIBLE
-    }
-
     private fun hideLoading() {
         binding.progressBar.visibility = View.GONE
+    }
+
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun onSuccess(data: List<GetProductsQuery.Product>?) {
