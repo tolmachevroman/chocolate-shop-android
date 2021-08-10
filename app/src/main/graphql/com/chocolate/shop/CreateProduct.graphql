@@ -1,0 +1,5 @@
+mutation CreateProduct($name: String!, $description: String!, $price: Int!,
+    $chocolateType: ChocolateType!, $fillings: [String!]!, $images: [String!]!) {
+    createProduct(name: $name, description: $description, price: $price,
+        chocolateType: $chocolateType, fillings: $fillings, images: $images)
+}

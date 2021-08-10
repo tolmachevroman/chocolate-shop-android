@@ -3,9 +3,11 @@ package com.chocolate.shop.data
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.ApolloMutationCall
 import com.apollographql.apollo.ApolloQueryCall
+import com.chocolate.shop.CreateProductMutation
 import com.chocolate.shop.GetProductQuery
 import com.chocolate.shop.GetProductsQuery
 import com.chocolate.shop.UpdateProductPriceMutation
+import com.chocolate.shop.type.ChocolateType
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -32,7 +34,26 @@ class ChocolateRepository @Inject constructor() {
         return apolloClient.query(GetProductQuery(id))
     }
 
-    fun updateProductPrice(id: String, newPrice: Int): ApolloMutationCall<UpdateProductPriceMutation.Data> {
+    fun updateProductPrice(
+        id: String,
+        newPrice: Int
+    ): ApolloMutationCall<UpdateProductPriceMutation.Data> {
         return apolloClient.mutate(UpdateProductPriceMutation(id, newPrice))
+    }
+
+    fun createProduct(
+        name: String, description: String, price: Int, chocolateType: ChocolateType,
+        fillings: List<String>, images: List<String>
+    ): ApolloMutationCall<CreateProductMutation.Data> {
+        return apolloClient.mutate(
+            CreateProductMutation(
+                name,
+                description,
+                price,
+                chocolateType,
+                fillings,
+                images
+            )
+        )
     }
 }

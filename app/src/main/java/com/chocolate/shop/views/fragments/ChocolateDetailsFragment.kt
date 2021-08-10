@@ -37,7 +37,7 @@ class ChocolateDetailsFragment : Fragment() {
         binding.toolbar.setupWithNavController(navController)
         binding.toolbar.setOnMenuItemClickListener { item ->
            if (item.itemId == R.id.delete) {
-                
+
            }
            true
         }
