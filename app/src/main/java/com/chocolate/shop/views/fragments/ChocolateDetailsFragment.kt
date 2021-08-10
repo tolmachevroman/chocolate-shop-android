@@ -71,9 +71,13 @@ class ChocolateDetailsFragment : Fragment() {
             binding.fillings.text = formatFillings(fillings)
             binding.price.text = formatPrice(price)
 
-            binding.updatePriceButton.setOnClickListener {
+            binding.updatePrice.visibility = View.VISIBLE
+            binding.updatePrice.setOnClickListener {
                 val directions =
-                    ChocolateDetailsFragmentDirections.navigateToPriceNumberPicker(id.toString(), price)
+                    ChocolateDetailsFragmentDirections.navigateToPriceNumberPicker(
+                        id.toString(),
+                        price
+                    )
                 findNavController().navigate(directions)
             }
         }
