@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chocolate.shop.GetProductQuery
+import com.chocolate.shop.R
 import com.chocolate.shop.databinding.ChocolateDetailsFragmentBinding
 import com.chocolate.shop.type.ChocolateType
 import com.chocolate.shop.utils.ResourceObserver
@@ -34,6 +35,12 @@ class ChocolateDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = findNavController()
         binding.toolbar.setupWithNavController(navController)
+        binding.toolbar.setOnMenuItemClickListener { item ->
+           if (item.itemId == R.id.delete) {
+                
+           }
+           true
+        }
 
         arguments?.apply {
             val productId: String = ChocolateDetailsFragmentArgs.fromBundle(this).productId
