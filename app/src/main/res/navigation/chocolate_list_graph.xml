@@ -36,6 +36,9 @@
         <argument
             android:name="product_id"
             app:argType="string" />
+        <argument
+            android:name="current_price"
+            app:argType="integer" />
     </dialog>
 
 </navigation>

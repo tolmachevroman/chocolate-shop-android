@@ -49,25 +49,6 @@ class ChocolateDetailsFragment : Fragment() {
                     ::onError
                 )
             )
-
-            binding.updatePriceButton.setOnClickListener {
-                val directions =
-                    ChocolateDetailsFragmentDirections.navigateToPriceNumberPicker(productId)
-                findNavController().navigate(directions)
-            }
-
-            //TODO move to another fragment
-//            val newPrice = 555
-//            viewModel.updateChocolatePrice(productId, newPrice).observe(
-//                viewLifecycleOwner, ResourceObserver(
-//                    javaClass.simpleName,
-//                    ::hideLoading,
-//                    ::showLoading,
-//                    onSuccess = { binding.price.text = formatPrice(newPrice) },
-//                    ::onError
-//                )
-//            )
-
         }
     }
 
@@ -89,6 +70,12 @@ class ChocolateDetailsFragment : Fragment() {
             binding.chocolateType.text = formatChocolateType(chocolateType)
             binding.fillings.text = formatFillings(fillings)
             binding.price.text = formatPrice(price)
+
+            binding.updatePriceButton.setOnClickListener {
+                val directions =
+                    ChocolateDetailsFragmentDirections.navigateToPriceNumberPicker(id.toString(), price)
+                findNavController().navigate(directions)
+            }
         }
     }
 
