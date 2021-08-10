@@ -114,7 +114,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/fillings" />
 
             <Button
-                android:id="@+id/update_price"
+                android:id="@+id/update_price_button"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

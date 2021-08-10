@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chocolate.shop.GetProductQuery
 import com.chocolate.shop.databinding.ChocolateDetailsFragmentBinding
-import com.chocolate.shop.databinding.ChocolateListFragmentBinding
 import com.chocolate.shop.type.ChocolateType
 import com.chocolate.shop.utils.ResourceObserver
 import com.chocolate.shop.viewmodels.ChocolateDetailsViewModel
@@ -50,6 +49,12 @@ class ChocolateDetailsFragment : Fragment() {
                     ::onError
                 )
             )
+
+            binding.updatePriceButton.setOnClickListener {
+                val directions =
+                    ChocolateDetailsFragmentDirections.navigateToPriceNumberPicker(productId)
+                findNavController().navigate(directions)
+            }
 
             //TODO move to another fragment
 //            val newPrice = 555

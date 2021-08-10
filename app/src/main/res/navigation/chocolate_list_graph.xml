@@ -24,5 +24,18 @@
         <argument
             android:name="product_name"
             app:argType="string" />
+        <action
+            android:id="@+id/navigate_to_price_number_picker"
+            app:destination="@id/price_number_picker" />
     </fragment>
+
+    <dialog
+        android:id="@+id/price_number_picker"
+        android:name="com.chocolate.shop.views.fragments.PriceNumberPickerFragment"
+        tools:layout="@layout/chocolate_price_number_picker_fragment">
+        <argument
+            android:name="product_id"
+            app:argType="string" />
+    </dialog>
+
 </navigation>
