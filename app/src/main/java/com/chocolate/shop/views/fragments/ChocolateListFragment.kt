@@ -53,7 +53,8 @@ class ChocolateListFragment : Fragment() {
         )
 
         binding.fab.setOnClickListener {
-
+            val directions = ChocolateListFragmentDirections.navigateToCreateChocolate()
+            findNavController().navigate(directions)
         }
 
         viewModel.chocolates().observe(

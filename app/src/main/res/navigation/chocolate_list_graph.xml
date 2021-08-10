@@ -12,6 +12,9 @@
         <action
             android:id="@+id/navigate_to_chocolate_details"
             app:destination="@id/chocolate_details" />
+        <action
+            android:id="@+id/navigate_to_create_chocolate"
+            app:destination="@id/create_chocolate" />
     </fragment>
 
     <fragment
@@ -40,5 +43,11 @@
             android:name="current_price"
             app:argType="integer" />
     </dialog>
+
+    <fragment
+        android:id="@+id/create_chocolate"
+        android:name="com.chocolate.shop.views.fragments.CreateChocolateFragment"
+        tools:layout="@layout/create_chocolate_fragment">
+    </fragment>
 
 </navigation>
