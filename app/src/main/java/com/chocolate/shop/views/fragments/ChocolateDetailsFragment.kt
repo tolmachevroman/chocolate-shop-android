@@ -80,20 +80,25 @@ class ChocolateDetailsFragment : Fragment() {
                 .load(images[0])
                 .into(binding.image);
             binding.name.text = name
-            binding.description.text = description
+            binding.description.text = formatDescription(description)
             binding.chocolateType.text = formatChocolateType(chocolateType)
             binding.fillings.text = formatFillings(fillings)
             binding.price.text = formatPrice(price)
         }
     }
 
+    private fun formatDescription(description: String): String {
+        return "\u2022 $description"
+    }
+
     private fun formatChocolateType(chocolateType: ChocolateType): String {
-        return chocolateType.toString().lowercase()
+        return "\u2022 " + chocolateType.toString().lowercase()
             .replaceFirstChar { it.uppercase() } + " chocolate"
     }
 
     private fun formatFillings(fillings: List<String>): String {
         val stringBuilder = StringBuilder()
+        stringBuilder.append("\u2022 ")
         stringBuilder.append("Contains ")
         for ((i, f) in fillings.withIndex()) {
             stringBuilder.append(f.lowercase())
@@ -104,7 +109,7 @@ class ChocolateDetailsFragment : Fragment() {
     }
 
     private fun formatPrice(price: Int): String {
-        return "$$price per kilo"
+        return "\u2022 $$price per kilo"
     }
 
     private fun onError(error: String?) {}
