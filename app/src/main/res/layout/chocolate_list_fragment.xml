@@ -7,24 +7,24 @@
     tools:context=".views.activities.ChocolateListActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="@style/MyToolbar"
-        app:titleTextColor="@color/white"
-        app:title="@null"
         android:id="@+id/toolbar"
+        style="@style/MyToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@null"
+        app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress_bar"
@@ -32,9 +32,22 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="Add"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/green_500"
+        app:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

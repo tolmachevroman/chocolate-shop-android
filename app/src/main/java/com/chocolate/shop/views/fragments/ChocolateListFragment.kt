@@ -52,6 +52,10 @@ class ChocolateListFragment : Fragment() {
             )
         )
 
+        binding.fab.setOnClickListener {
+
+        }
+
         viewModel.chocolates().observe(
             viewLifecycleOwner, ResourceObserver(
                 javaClass.simpleName,
