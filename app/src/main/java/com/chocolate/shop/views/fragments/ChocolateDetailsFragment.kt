@@ -1,5 +1,7 @@
 package com.chocolate.shop.views.fragments
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +18,9 @@ import com.chocolate.shop.utils.ResourceObserver
 import com.chocolate.shop.viewmodels.ChocolateDetailsViewModel
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
+import android.widget.TextView
+import com.chocolate.shop.databinding.ConfirmationDialogLayoutBinding
+
 
 @AndroidEntryPoint
 class ChocolateDetailsFragment : Fragment() {
@@ -35,18 +40,19 @@ class ChocolateDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = findNavController()
         binding.toolbar.setupWithNavController(navController)
-        binding.toolbar.setOnMenuItemClickListener { item ->
-           if (item.itemId == R.id.delete) {
-
-           }
-           true
-        }
 
         arguments?.apply {
             val productId: String = ChocolateDetailsFragmentArgs.fromBundle(this).productId
             val productName: String = ChocolateDetailsFragmentArgs.fromBundle(this).productName
 
             binding.toolbar.title = productName
+            binding.toolbar.setOnMenuItemClickListener { item ->
+                if (item.itemId == R.id.delete) {
+                    showDeleteConfirmationDialog(productId)
+                }
+                true
+            }
+
             viewModel.chocolate(productId).observe(
                 viewLifecycleOwner, ResourceObserver(
                     javaClass.simpleName,
@@ -57,6 +63,36 @@ class ChocolateDetailsFragment : Fragment() {
                 )
             )
         }
+    }
+
+    private fun showDeleteConfirmationDialog(productId: String) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(activity)
+
+        val binding = ConfirmationDialogLayoutBinding.inflate(layoutInflater)
+        binding.title.text = "Delete"
+        binding.message.text = "Are you sure you want to delete this product?"
+        builder.setView(binding.root)
+
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            viewModel.deleteChocolate(productId).observe(
+                viewLifecycleOwner, ResourceObserver(
+                    javaClass.simpleName,
+                    hideLoading = { hideLoading(); },
+                    showLoading = { dialog.dismiss(); showLoading(); },
+                    onSuccess = {
+                        val directions =
+                            ChocolateDetailsFragmentDirections.navigateToChocolateList()
+                        findNavController().navigate(directions)
+                    },
+                    ::onError
+                )
+            )
+        }
+        builder.setNeutralButton("Cancel") { dialog, _ ->
+            dialog.cancel()
+        }
+        builder.setCancelable(true)
+        builder.show()
     }
 
     private fun hideLoading() {

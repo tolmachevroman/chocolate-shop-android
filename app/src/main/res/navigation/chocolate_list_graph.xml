@@ -30,6 +30,9 @@
         <action
             android:id="@+id/navigate_to_price_number_picker"
             app:destination="@id/price_number_picker" />
+        <action
+            android:id="@+id/navigate_to_chocolate_list"
+            app:destination="@id/chocolate_list" />
     </fragment>
 
     <dialog

@@ -9,13 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chocolate.shop.CreateProductMutation
-import com.chocolate.shop.GetProductQuery
-import com.chocolate.shop.R
 import com.chocolate.shop.databinding.CreateChocolateFragmentBinding
 import com.chocolate.shop.type.ChocolateType
 import com.chocolate.shop.utils.ResourceObserver
 import com.chocolate.shop.viewmodels.CreateChocolateViewModel
-import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
