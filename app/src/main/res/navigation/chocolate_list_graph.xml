@@ -48,6 +48,9 @@
         android:id="@+id/create_chocolate"
         android:name="com.chocolate.shop.views.fragments.CreateChocolateFragment"
         tools:layout="@layout/create_chocolate_fragment">
+        <action
+            android:id="@+id/navigate_to_chocolate_list"
+            app:destination="@id/chocolate_list" />
     </fragment>
 
 </navigation>

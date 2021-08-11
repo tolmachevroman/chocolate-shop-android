@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/layout/chocolate_list_fragment.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_list_host.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/chocolate_price_number_picker_fragment.xml" value="0.13043478260869565" />
-        <entry key="app/src/main/res/layout/create_chocolate_fragment.xml" value="0.13043478260869565" />
+        <entry key="app/src/main/res/layout/create_chocolate_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/menu/chocolate_details_menu.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/menu/chocolate_list_menu.xml" value="0.20104166666666667" />
       </map>
