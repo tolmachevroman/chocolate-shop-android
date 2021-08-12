@@ -7,7 +7,7 @@ Companion Android app for an [imaginary chocolate shop web service](https://gith
 * The app follows MVVM architecture. 
 
 * `Single Activity` pattern with `Navigation` component. Main `ChocolateListActivity` hosts Fragments (see [navigation graph](https://github.com/tolmachevroman/chocolate-shop-android/blob/master/app/src/main/res/navigation/chocolate_list_graph.xml)). 
-One caveat is to manage the backstack when navigation from one Fragment to another. See [this commit](29aad4ef9cb70487ec81aef0b0aa382f89a4e2dd).
+One caveat is to manage the backstack when navigation from one Fragment to another. See [this commit](https://github.com/tolmachevroman/chocolate-shop-android/commit/29aad4ef9cb70487ec81aef0b0aa382f89a4e2dd).
 
 * Each Fragment has its `LiveData` classes performing the requests. `LiveDataScopde` provided by ktx libraries allows for Apollo usage with `Coroutines`.  
 
@@ -15,9 +15,9 @@ One caveat is to manage the backstack when navigation from one Fragment to anoth
 The only data source is the local GraphQL web service. 
 
 * Each Fragment inflates its own `Toolbar`. Although `Navigation` component allows for host-centered `AppBarLayout`, I found it difficult to customize, 
-even simple things like changing title appearance. Fragment-based `Toolbar`s allow for maximum customization decoupling.
+even simple things like changing title appearance. Fragment-based `Toolbar`s allow for maximum customization and decoupling.
 
-Also, take a look at the [Medium article]() for more information
+Also, take a look at the [Medium article](https://medium.com/@romantolmachev/android-app-for-an-imaginary-chocolate-shop-using-navigation-hilt-livedata-with-coroutines-and-45d902cc6078) for more information
 
 ## Screenshots
 
