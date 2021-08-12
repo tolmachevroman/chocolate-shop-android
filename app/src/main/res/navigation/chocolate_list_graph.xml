@@ -14,7 +14,7 @@
             app:destination="@id/chocolate_details" />
         <action
             android:id="@+id/navigate_to_create_chocolate"
-            app:destination="@id/create_chocolate" />
+            app:destination="@id/create_chocolate"/>
     </fragment>
 
     <fragment
@@ -32,7 +32,9 @@
             app:destination="@id/price_number_picker" />
         <action
             android:id="@+id/navigate_to_chocolate_list"
-            app:destination="@id/chocolate_list" />
+            app:destination="@id/chocolate_list"
+            app:popUpTo="@+id/chocolate_list_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <dialog
@@ -53,7 +55,9 @@
         tools:layout="@layout/create_chocolate_fragment">
         <action
             android:id="@+id/navigate_to_chocolate_list"
-            app:destination="@id/chocolate_list" />
+            app:destination="@id/chocolate_list"
+            app:popUpTo="@+id/chocolate_list_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
